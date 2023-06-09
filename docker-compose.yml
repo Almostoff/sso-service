@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+  sso_service:
+    ports:
+      - "11012:11012"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    container_name: sso_service
+  sso_redis:
+    ports:
+      - "9004:6380"
+    image: redis:6.2-alpine
+    restart: always
+    command: redis-server --save 20 1
+    volumes:
+      - sso_redis:/data/redis
+    container_name: sso_redis
+
+volumes:
+  sso_redis:
+    driver: local
+

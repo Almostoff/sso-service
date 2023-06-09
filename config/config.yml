@@ -1,0 +1,48 @@
+System:
+  MaxGoRoutines: 15000
+
+Server:
+  AppVersion: "1.0.0"
+  Host: "0.0.0.0"
+  Port: "11012"
+  ShowUnknownErrorsInResponse: 1
+
+Postgres:
+  host: "gAAAAABkJMvc3rs9MufuLGgXkB0fIaHaGTNzG7195svDmHd5-t0gkY_j3aTboGF6BX7614D7mGT5Wi5ifTl-DloG9BRC77uenWt65K5LMtFzlla6PZZaSFQ4yhOtAo6QXb70iRlPusezH6f8USJrtwlntKuAzsDrqA=="
+  port: "gAAAAABkJMvcmVjcY21opP5-EdaCaDHZkxGW83Pc91Fl_L_MZzuB2gRML1TN66L8s9gWXHGs1qdt8exztpqH6nGtkbm211h7ig=="
+  user: "gAAAAABkJMvc358dQGnb5iPpbN7U2u9sJSY78hXGPCLbmoUPvHuiXUxrhJDvixZHeBBAobFFQXY09nE1VYLG8_XSvNWMsKhqVQ=="
+  password: "gAAAAABkJMvcOWFXyUsQyPZh4b_TkB43UYffMN08tuW9WlVKpX4RaZSOopkz_Zoi8RK8HSP8v59ts3MT5AWk2_RqCoKvAgQbbAHoJZdRAgUjWIEInDYC02E="
+  DBName: "gAAAAABkJP5vD6NQxVZo92y2kkzerHDVaVZyJy-8b3uTewPn1l3Y4yU4mWRGVmDKhKT4KRf_dE0xPGSoTJVELoDepPPhh2xZwg=="
+  sslMode: "require"
+  pgDriver: "pgx"
+
+Redis:
+  Addr: "gAAAAABkA5Aurd_1PjmK-I-TDo4Dl0rC1zseKKqMcBhKG9sKC4Zk8S6X2HDxEqGcr5U8usBNGsiEHaJUwRVus8xVMnSJeOqQgRN4NcKZ7ZiWKnuh5KbNhaw="
+  Password: "gAAAAABj_iwB5SJEwZROC22y7wKpor4gVwGj8OjWHo9L_sivQD67dR0lj0hAZTaN2GXzNeUptxBcIvdd5bynCMuRMfHbPTX1cfFxboOTpgOrOseoMAmVz0js6d2zQM9_q8xVYOnmdjwR"
+
+LoggerService:
+  url: ""
+  serviceId: 0
+  devPublic: ""
+  devPrivate: ""
+
+Logger:
+  Level: ""
+  SkipFrameCount: 1
+  InFile: 0
+  FilePath: "log.txt"
+  InTG: 0
+  ChatID: ""
+  TGToken: ""
+
+Kyc:
+  Username: "gAAAAABkWHnA2iM4S0MVjEkfqDQDJTAohlWYBw8-rftc2Jag-i7AdLab_dJ1w0P4LLTisWk1BMnighn9AYS3Di57XXe9yJXbrQ=="
+  Pass: "gAAAAABkWHn8rN0UvI53rinLaa16KOCrTgSp38bdtfFPxi_tpSIx5okUHAVmHjSP326xn_iDqOiwWxutNLgWJrUvTg9Ps8DxINEabVKLcw82iWJWfCSt6Z8="
+  Url: "gAAAAABkWHok06pnmcwUrBO26Lmmch00Stsv1fvJ04uxTBBZtTnmZOi3SSWJwnaUp17wpU_IHGfK3DXqYfD-5wPs59zK_x-h1AXV-vcfWLUuYnD3RnjIasgpzJQPx0P5OoCGvT9s7anQ"
+
+
+Email:
+  Url: ""
+  ServiceId: 0
+  DevPublic: ""
+  DevPrivate: ""

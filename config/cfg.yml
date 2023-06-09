@@ -1,0 +1,14 @@
+Postgres:
+  host: "localhost"
+  port: "54123"
+  user: "admin"
+  password: "root"
+  dbName: "tS"
+  sslMode: "disable"
+  pgDriver: "pgx"
+
+Server:
+  AppVersion: "1.0.0"
+  Host: "localhost"
+  Port: "8181"
+  ShowUnknownErrorsInResponse: true
