@@ -57,10 +57,8 @@ func GetResponseCode(cm *CodeModel, data interface{}, params interface{}) *CodeM
 			cm.InternalMessage = ""
 			cm.InternalCode = 0
 		}
-		fmt.Println("here")
 		return cm
 	} else {
-		fmt.Println("here1")
 		return &CodeModel{}
 	}
 

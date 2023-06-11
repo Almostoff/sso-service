@@ -3,9 +3,9 @@ POST http://localhost:8181/sso/sign_up
 content-type: application/json
 
 {
-  "ua": "t22",
-  "ip": "122.1.2.3",
-  "email": "t22@mail.com",
+  "ua": "t2",
+  "ip": "124.1.2.3",
+  "email": "t2@mail.com",
   "password": "tesTPass114*",
   "phone": "+9999999999"
 }
@@ -17,16 +17,19 @@ POST http://localhost:8181/sso/sign_in
 content-type: application/json
 
 {
-  "email": "t12@mail.com",
-  "password": "tesTPass214*"
+  "email": "t1@mail.com",
+  "ua": "t1",
+  "ip": "testIp",
+  "password": "tesTPass114*"
 }
 
 ###
 
 ## LogOut
 POST http://localhost:8181/sso/my/logout
-UA: testOne
-Access: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InQxQG1haWwuY29tIiwibmJmIjoiMjAyMy0wNi0wOVQxNDo1NTowMS45NDI5MTI1WiIsInR5cGUiOiJhY2Nlc3MifQ.b-yIakEpDpVRwkP4m20KgbwzfKXhWk4wv-lVHRM2hMM
+UA: t2
+Access: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InQyQG1haWwuY29tIiwibmJmIjoiMjAyMy0wNi0xMVQyMDoxMDozNi43NTIyMjU5WiIsInR5cGUiOiJhY2Nlc3MiLCJ1dWlkIjoiNmIxZGY2NjMtM2E0OS00YzQxLWI1OWEtN2JhOGExZjcwMjNjIn0.MYRJT3DZgvxp8B2rQ9Z10-3F4krvqS3Qvih_LnOhfp4
+
 
 
 ###

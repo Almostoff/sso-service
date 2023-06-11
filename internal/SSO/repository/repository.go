@@ -384,9 +384,7 @@ func (p postgresRepository) AddSession(params *model.Session) *model.CodeModel {
 func (p postgresRepository) LogoutSession(params *model.LogoutParams) *model.CodeModel {
 	q := `UPDATE session_history SET logout_time=$1, is_logout=true  WHERE client_uuid=$2`
 	stmt, err := p.db.Prepare(q)
-	//uiid := "0415db6d-f6ec-4d46-8d89-4b4ae6f97138"
 	res, err := stmt.Exec(utils.GetEuropeTime(), params.ClientUuid)
-	//res, err := stmt.Exec(utils.GetEuropeTime(), uiid)
 	cErr := p.errorCheckInsert(res, err, cConstants.RepoChangeLevelStatus)
 	return cErr
 }

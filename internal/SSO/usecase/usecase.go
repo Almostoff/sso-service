@@ -17,7 +17,6 @@ import (
 	"github.com/pquerna/otp/totp"
 	"image/png"
 	"io/ioutil"
-	"log"
 	"strings"
 )
 
@@ -136,6 +135,7 @@ func (u *UsersUsecase) SignUp(params *model.SignUpParams) *model.ResponseSignUp 
 func (u *UsersUsecase) SignIn(params *model.SignInParams) *model.ResponseSignIn {
 	email := strings.ToLower(params.Email)
 	uuid, cErr := u.repo.GetClientUuidByEmail(email)
+	params.ClientUuid = *uuid
 	if cErr.IsError {
 		return &model.ResponseSignIn{
 			Error:   cErr,
@@ -260,7 +260,7 @@ func (u *UsersUsecase) RequestToConfirmMail(params *model.RequestToConfirmMailPa
 // ---------------------------------------------------------------------
 
 func (u *UsersUsecase) Logout(params *model.LogoutParams) *model.Response {
-	log.Println("Check params client ID: ", params.ClientUuid)
+	params.ClientUuid = u.decodeUuidToken(params.Access)
 	cErr := u.DeleteRedisUser(&model.DeleteRedisUserParams{
 		ClientUuid: params.ClientUuid,
 	})
@@ -879,7 +879,6 @@ func (u *UsersUsecase) encode(password string) string {
 
 func (u *UsersUsecase) generateAccessToken(params *model.TokenGenerate) (string, error) {
 	var hmacSampleSecret []byte
-	fmt.Println(params.Email)
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
 		"email": params.Email,
 		"uuid":  params.ClientUuid,
@@ -954,4 +953,14 @@ func (u *UsersUsecase) handleCodes(codes *[]model.AuthCode) *model.Response {
 		Error:   cErr,
 		Success: model.GetSuccessByCM(cErr),
 	}
+}
+
+func (u *UsersUsecase) decodeUuidToken(token string) string {
+	claims := jwt.MapClaims{}
+	_, _ = jwt.ParseWithClaims(token, claims, func(token *jwt.Token) (interface{}, error) {
+		return nil, nil
+	})
+	var uuid string
+	uuid = fmt.Sprint(claims["uuid"])
+	return uuid
 }
