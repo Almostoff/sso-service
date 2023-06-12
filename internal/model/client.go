@@ -90,6 +90,7 @@ type Credential struct {
 }
 
 type HistoryPasswords struct {
+	ID         int    `json:"id" db:"id"`
 	ClientUuid string `json:"client_uuid" db:"client_uuid"`
 	Password   string `json:"-" db:"password"`
 	ChangeTime string `json:"-" db:"change_time"`

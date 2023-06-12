@@ -3,9 +3,9 @@ POST http://localhost:8181/sso/sign_up
 content-type: application/json
 
 {
-  "ua": "t2",
+  "ua": "t1",
   "ip": "124.1.2.3",
-  "email": "t2@mail.com",
+  "email": "t1@mail.com",
   "password": "tesTPass114*",
   "phone": "+9999999999"
 }
@@ -19,16 +19,27 @@ content-type: application/json
 {
   "email": "t1@mail.com",
   "ua": "t1",
-  "ip": "testIp",
-  "password": "tesTPass114*"
+  "ip": "124.1.2.3",
+  "password": "testTPass1331*"
+}
+
+###
+## Change Password
+POST http://localhost:8181/sso/my/change/password
+content-type: application/json
+Access: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InQxQG1haWwuY29tIiwibmJmIjoiMjAyMy0wNi0xMlQxMjoxMzo1MS4yNjYwOTk1WiIsInR5cGUiOiJhY2Nlc3MiLCJ1dWlkIjoiZjFkNTFjZTctZjYxYS00MTU2LTk3OWQtYTdiNzFiMzQxZjhlIn0.GXg7Q9J0bUiH6hJbhFlUQVIxMuXJAzdrahsSfcqHvFQ
+
+{
+  "new_password": "NEwtestTPass411*",
+  "old_password": "testTPass411*"
 }
 
 ###
 
 ## LogOut
 POST http://localhost:8181/sso/my/logout
-UA: t2
-Access: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InQyQG1haWwuY29tIiwibmJmIjoiMjAyMy0wNi0xMVQyMDoxMDozNi43NTIyMjU5WiIsInR5cGUiOiJhY2Nlc3MiLCJ1dWlkIjoiNmIxZGY2NjMtM2E0OS00YzQxLWI1OWEtN2JhOGExZjcwMjNjIn0.MYRJT3DZgvxp8B2rQ9Z10-3F4krvqS3Qvih_LnOhfp4
+UA: t1
+Access: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InQxQG1haWwuY29tIiwibmJmIjoiMjAyMy0wNi0xMlQxMjoxMzo1MS4yNjYwOTk1WiIsInR5cGUiOiJhY2Nlc3MiLCJ1dWlkIjoiZjFkNTFjZTctZjYxYS00MTU2LTk3OWQtYTdiNzFiMzQxZjhlIn0.GXg7Q9J0bUiH6hJbhFlUQVIxMuXJAzdrahsSfcqHvFQ
 
 
 

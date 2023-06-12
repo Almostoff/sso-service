@@ -144,14 +144,16 @@ func (c ClientHandler) RequestToConfirmMail() fiber.Handler {
 func (c ClientHandler) ChangePassword() fiber.Handler {
 	return func(ctx *fiber.Ctx) error {
 		var params model.ChangePasswordParams
-		uuid := c.getUserUuid(ctx)
-		if uuid == "" {
-			return ctx.SendStatus(fiber.StatusUnauthorized)
-		}
 		if err := utils.ReadRequest(ctx, &params); err != nil {
 			return ctx.SendStatus(fiber.StatusBadRequest)
 		}
-		params.ClientUuid = uuid
+		if params.ClientUuid == "" {
+			uuid := c.getUserUuid(ctx)
+			if uuid == "" {
+				return ctx.SendStatus(fiber.StatusUnauthorized)
+			}
+			params.ClientUuid = uuid
+		}
 		data := c.clientUC.ChangePasswordWithOldCheck(&params)
 		data.Error = model.GetResponseCode(data.Error, data.Data, params)
 		return ctx.Status(handleStatus(data.Error)).JSON(data)
@@ -395,6 +397,11 @@ func (c ClientHandler) Logout() fiber.Handler {
 		var params model.LogoutParams
 		params.UA = ctx.Get("ua")
 		params.Access = ctx.Get("access")
+		if params.Access == "" {
+			if err := utils.ReadRequest(ctx, &params); err != nil {
+				return ctx.SendStatus(fiber.StatusBadRequest)
+			}
+		}
 		data := c.clientUC.Logout(&params)
 		data.Error = model.GetResponseCode(data.Error, data.Data, params)
 		return ctx.Status(handleStatus(data.Error)).JSON(data)
